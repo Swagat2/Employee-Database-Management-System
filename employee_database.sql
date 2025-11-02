@@ -35,8 +35,9 @@ BaseSalary DECIMAL(10,2),
 Bonus DECIMAL(10,2),
 Deduction DECIMAL(10,2),
 NetSalary DECIMAL(10,2),
-foreign key(EmpID) references ATTENDANCE(EmpID)
+foreign key(EmpID) references EMPLOYEE(EmpID)
 );
+
 -- CREATE TABLE FOR PROJECT
 CREATE TABLE PROJECT(
 ProjectID INT PRIMARY KEY,
@@ -45,3 +46,50 @@ EmpID INT,
 Role VARCHAR(50),
 foreign key(EmpID) references EMPLOYEE(EmpID)
 );
+
+-- INSERTING VALUES FOR DEPARTMENT
+INSERT INTO DEPARTMENT(DeptID,DeptName,Location)
+VALUES
+(1,'HR','BANGLORE'),
+(2,'IT','HYDERABAD'),
+(3,'FINANCE','MUMBAI');
+
+-- INSERTING VALUES FOR EMPLOYEE
+INSERT INTO EMPLOYEE VALUES
+(101, 'Swagat', 'M', '1999-05-10', 2, '2022-07-01', 'Software Engineer'),
+(102, 'Pooja', 'F', '1998-03-21', 1, '2021-03-15', 'HR Manager'),
+(103, 'Rahul', 'M', '1997-12-10', 3, '2020-05-20', 'Accountant'),
+(104, 'Sneha', 'F', '2000-09-17', 2, '2023-01-05', 'Intern');
+
+-- INSERTING VALUE FOR SALARY
+INSERT INTO SALARY VALUES
+(1,101,40000,5000,3000,42000),
+(2, 102, 60000, 8000, 3000, 65000),
+(3, 103, 50000, 2000, 1000, 51000),
+(4, 104, 20000, 1000, 500, 20500);
+
+-- INSERTING VALUES FOR ATTENDANCE
+INSERT INTO ATTENDANCE VALUES
+(1, 101, '2025-10-01', 'Present'),
+(2, 101, '2025-10-02', 'Absent'),
+(3, 102, '2025-10-01', 'Present'),
+(4, 103, '2025-10-01', 'Present'),
+(5, 104, '2025-10-01', 'Present');
+
+-- INSERTING VALUES FOR PROJECT
+INSERT INTO PROJECT VALUES
+(1, 'AI Chatbot', 101, 'Developer'),
+(2, 'Payroll System', 103, 'Account Lead'),
+(3, 'Recruitment Portal', 102, 'HR Admin'),
+(4, 'Website Redesign', 104, 'Intern Developer');
+
+SHOW DATABASES;
+SHOW TABLES;
+DESC employee;
+SELECT * FROM EMPLOYEE;
+SELECT * FROM Employee
+WHERE EmpID IS NULL;
+
+DELETE FROM Employee WHERE EmpID IS NULL;
+SELECT * FROM Employee;
+SELECT COUNT(*) FROM EMPLOYEE;
